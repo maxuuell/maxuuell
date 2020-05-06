@@ -1,0 +1,32 @@
+{
+  "name": "maxuuell",
+  "version": "1.0.0",
+  "description": "my blog",
+  "main": "index.js",
+  "dependencies": {
+    "@mdx-js/loader": "^1.6.1",
+    "@next/mdx": "^9.3.6",
+    "next": "^9.3.6",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "postcss-preset-env": "^6.7.0",
+    "tailwindcss": "^1.4.5"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxuuell/maxuuell.git"
+  },
+  "author": "maxuuell@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maxuuell/maxuuell/issues"
+  },
+  "homepage": "https://github.com/maxuuell/maxuuell#readme"
+}
