@@ -7,19 +7,21 @@ export const P = ({ children, className = "", style = {} }) => (
 );
 
 export const H1 = ({ children, className = "", style = {} }) => (
-  <h1 style={style} className={`text-4xl ${className}`}>
+  <h1 style={style} className={`text-5xl ${className}`}>
     {children}
   </h1>
 );
 
 export const H2 = ({ children, className = "", style = {} }) => (
-  <h2 style={style} className={`text-3xl ${className}`}>
+  <h2 style={style} className={`text-4xl mb-6 ${className}`}>
     {children}
   </h2>
 );
 
 export const H3 = ({ children, className = "", style = {} }) => (
-  <h3 style={style} className={`text-2xl ${className}`}>
+  <h3 style={style} className={`text-3xl mb-6 ${className}`}>
     {children}
   </h3>
 );
+
+export const CODE = (props) => <pre {...props} />;

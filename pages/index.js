@@ -3,60 +3,64 @@ import Link from "next/link";
 
 import { Header } from "../components/Headers";
 import { P } from "../components/common";
+import ConvertKitScript from "../components/ConvertKitScript";
 
 const Index = () => {
   return (
-    <main className="w-full max-w-screen-md m-auto">
+    <main className="w-full md:max-w-screen-md m-auto mb-32">
       <Header landing={true} />
-      <P>Welcome friends! 👋</P>
-      <P>
-        My name is Maxwell, and I am a software engineer at PayPal. I'm proud to
-        be a{" "}
+      <P className={"text-xl"}>Welcome friends!</P>
+      <P className={"text-xl"}>
+        I am a software engineer at PayPal, and a proud{" "}
         <a
           href="https://medium.com/@maxuuell/auditor-to-engineer-79cccb08d614"
           target="__blank"
         >
           second career dev
         </a>
-        , and actively exploring Rust. ⚙️
+        .
       </P>
-      <P>
-        This is my own small sliver of the internet where I share my thoughts
-        and ideas. You can anticipate a lot of content on Rust,{" "}
-        <a href="https://twitter.com/hashtag/gamedev" target="__blank">
-          #gamedev
-        </a>
-        , my musings on software in general, and who knows what else.
+      <P className={"text-xl"}>
+        This is my sliver of the internet where I share my thoughts and ideas. I
+        make no promises about what to expect. For now, I am striving to reach
+        my goals of freedom and flexibility. Be prepared for inspiration,
+        software engineering musings, courses and tutorials, product ideas, and
+        some spicy opinions. 🌶️
       </P>
-      <P>
-        If you like anything you read, please share it on Twitter. I love
-        talking about these topics, and want to hear your thoughts too!
+      <P className={"text-xl"}>
+        If you like anything you read, please share it on Twitter. I am always
+        happy to discuss, and very appreciative of the feedback. 🙇‍♂️
       </P>
       <div className="flex mb-4 mt-4 justify-evenly">
-        <div className="w-1/2">
+        <div className="w-1/2 pr-4">
           <Link href="/now">
             <h1 className="text-4xl text-orange cursor-pointer">Now</h1>
           </Link>
-          <p>
+          <P className="text-lg">
             My "now" page, inspired by{" "}
             <a href="https://sivers.org/now" target="__blank">
               Derek Sivers
             </a>
-          </p>
+          </P>
         </div>
         <div className="w-1/2">
-          <Link href="/rust">
-            <h1 className="text-4xl text-orange cursor-pointer">Rust</h1>
+          <Link href="/digitalgarden">
+            <h1 className="text-4xl text-orange cursor-pointer">
+              Digital Garden
+            </h1>
           </Link>
-          <p>Rust posts on various subjects on the language, tutorials, etc.</p>
+          <P className="text-lg">
+            My raw ideas that I cultivate and cherish. All are welcome.
+          </P>
         </div>
       </div>
       <div>
-        <Link href="/free">
-          <h1 className="text-4xl text-orange cursor-pointer">Musings</h1>
+        <Link href="/blog">
+          <h1 className="text-4xl text-orange cursor-pointer">Blog</h1>
         </Link>
-        <p>Posts around broad topics and ideas.</p>
+        <P className="text-lg">Posts that are more refined and structured.</P>
       </div>
+      <ConvertKitScript />
     </main>
   );
 };

@@ -9,11 +9,19 @@ html body {
   color: white;
   font-family: "Inter", sans-serif;
   box-sizing: border-box;
-  font-size: 18px;
 }
 
 a {
   color: #ff8c00;
   text-decoration: none;
   cursor: pointer;
+}
+
+form {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+p code {
+  background-color: rgba(255, 140, 0, 0.3);
 }

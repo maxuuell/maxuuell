@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-
 import { H1 } from "./common";
 
 export const Header = () => {
