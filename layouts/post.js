@@ -7,7 +7,7 @@ export default (frontMatter) => {
   const { title, subtitle, date } = frontMatter;
   return ({ children: content }) => {
     return (
-      <main className="w-full max-w-screen-md m-auto mb-32">
+      <main className="w-full max-w-screen-md m-auto mb-32 pr-6 pl-6 lg:p-0">
         <LayoutHeader />
         <H1 className="font-bold">{title}</H1>
         {subtitle ? <H3>{subtitle}</H3> : null}

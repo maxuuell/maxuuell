@@ -7,7 +7,7 @@ import formatPath from "../../utils/formatPath";
 
 const Blog = () => {
   return (
-    <main className="w-full max-w-screen-md m-auto">
+    <main className="w-full max-w-screen-md m-auto mb-32 pr-6 pl-6 lg:p-0">
       <LayoutHeader />
       {frontMatter.map((page, key) => {
         const { title, subtitle, date, __resourcePath } = page;
