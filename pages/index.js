@@ -7,7 +7,7 @@ import ConvertKitScript from "../components/ConvertKitScript";
 
 const Index = () => {
   return (
-    <main className="w-full md:max-w-screen-md m-auto mb-32">
+    <main className="w-full max-w-screen-md m-auto mb-32 pr-8 pl-8 lg:p-0">
       <Header landing={true} />
       <P className={"text-xl"}>Welcome friends!</P>
       <P className={"text-xl"}>
@@ -31,8 +31,8 @@ const Index = () => {
         If you like anything you read, please share it on Twitter. I am always
         happy to discuss, and very appreciative of the feedback. 🙇‍♂️
       </P>
-      <div className="flex mb-4 mt-4 justify-evenly">
-        <div className="w-1/2 pr-4">
+      <div className="flex flex-col md:flex-row mt-4 justify-evenly">
+        <div className="w-full md:w-1/2 pr-4">
           <Link href="/now">
             <h1 className="text-4xl text-orange cursor-pointer">Now</h1>
           </Link>
@@ -43,7 +43,7 @@ const Index = () => {
             </a>
           </P>
         </div>
-        <div className="w-1/2">
+        <div className="w-full md:w-1/2">
           <Link href="/digitalgarden">
             <h1 className="text-4xl text-orange cursor-pointer">
               Digital Garden
