@@ -7,7 +7,7 @@ export const P = ({ children, className = "", style = {} }) => (
 );
 
 export const H1 = ({ children, className = "", style = {} }) => (
-  <h1 style={style} className={`text-5xl ${className}`}>
+  <h1 style={style} className={`text-3xl md:text-5xl ${className}`}>
     {children}
   </h1>
 );
