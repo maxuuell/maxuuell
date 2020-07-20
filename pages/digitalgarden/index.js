@@ -9,7 +9,9 @@ import formatPath from "../../utils/formatPath";
 const DigitalGarden = () => {
   return (
     <main className="w-full max-w-screen-md m-auto mb-32 pr-6 pl-6 lg:p-0">
-      <HeadElement />
+      <HeadElement>
+        <title>Digital Garden - maxuuell</title>
+      </HeadElement>
       <LayoutHeader />
       <H1 className="font-bold">Digital Garden</H1>
       <Link href="../blog/what-is-a-digital-garden">

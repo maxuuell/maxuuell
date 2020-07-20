@@ -9,7 +9,9 @@ import ConvertKitScript from "../components/ConvertKitScript";
 const Index = () => {
   return (
     <main className="w-full max-w-screen-md m-auto mb-32 pr-6 pl-6 lg:p-0">
-      <HeadElement />
+      <HeadElement>
+        <title>maxuuell</title>
+      </HeadElement>
       <Header landing={true} />
       <P className={"text-xl"}>Welcome friends!</P>
       <P className={"text-xl"}>

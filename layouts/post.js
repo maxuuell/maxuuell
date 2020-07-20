@@ -10,6 +10,7 @@ export default (frontMatter) => {
     return (
       <main className="w-full max-w-screen-md m-auto mb-32 pr-6 pl-6 lg:p-0">
         <HeadElement>
+          <title>{`${title} - maxuuell`}</title>
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:site" content="@maxuuell" />
           <meta name="twitter:title" content={title} />
