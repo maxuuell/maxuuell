@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { render } from "react-dom";
 
-const HeadElement = () => {
+const HeadElement = ({ children }) => {
   return (
     <Head>
       <script
@@ -15,6 +15,8 @@ const HeadElement = () => {
       gtag('js', new Date()); gtag('config', 'UA-78687488-2');`,
         }}
       />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      {children}
     </Head>
   );
 };

@@ -5,11 +5,17 @@ import HeadElement from "../components/HeadElement";
 import ConvertKitScript from "../components/ConvertKitScript";
 
 export default (frontMatter) => {
-  const { title, subtitle, date } = frontMatter;
+  const { title, subtitle = "", date, imageUrl } = frontMatter;
   return ({ children: content }) => {
     return (
       <main className="w-full max-w-screen-md m-auto mb-32 pr-6 pl-6 lg:p-0">
-        <HeadElement />
+        <HeadElement>
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:site" content="@maxuuell" />
+          <meta name="twitter:title" content={title} />
+          <meta name="twitter:description" content={subtitle} />
+          <meta name="twitter:image" content={imageUrl} />
+        </HeadElement>
         <LayoutHeader />
         <H1 className="font-bold">{title}</H1>
         {subtitle ? <H3>{subtitle}</H3> : null}
