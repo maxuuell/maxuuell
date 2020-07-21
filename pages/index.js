@@ -15,26 +15,42 @@ const Index = () => {
       <Header landing={true} />
       <P className={"text-xl"}>Welcome friends!</P>
       <P className={"text-xl"}>
-        I am a software engineer at PayPal, and a proud{" "}
-        <a
-          href="https://medium.com/@maxuuell/auditor-to-engineer-79cccb08d614"
-          target="__blank"
-        >
-          second career dev
+        I am here to help you become more confident in building awesome stuff
+        for the web. It's a big platform, and I want to help you make sense of
+        it all so you can move faster and with greater insight into how things
+        work.
+      </P>
+      <P className={"text-xl"}>
+        I also like to share my raw thoughts and ideas in my digital garden,
+        down below. You can think of this corner of the internet as my place of{" "}
+        <a href="https://www.swyx.io/writing/learn-in-public/">
+          Learning in public
         </a>
         .
       </P>
       <P className={"text-xl"}>
-        This is my sliver of the internet where I share my thoughts and ideas. I
-        make no promises about what to expect. For now, I am striving to reach
-        my goals of freedom and flexibility. Be prepared for inspiration,
-        software engineering musings, courses and tutorials, product ideas, and
-        some spicy opinions. 🌶️
-      </P>
-      <P className={"text-xl"}>
         If you like anything you read, please share it on Twitter. I am always
-        happy to discuss, and very appreciative of the feedback. 🙇‍♂️
+        happy to discuss, and very appreciative of the feedback. 🙇‍♂️ DMs are
+        always open.
       </P>
+      <div className="flex flex-col md:flex-row mt-4 justify-evenly">
+        <div className="w-full md:w-1/2 pr-4">
+          <Link href="/blog">
+            <h1 className="text-4xl text-orange cursor-pointer">Blog</h1>
+          </Link>
+          <P className="text-lg">Posts that are more refined and structured.</P>
+        </div>
+        <div className="w-full md:w-1/2">
+          <Link href="/digitalgarden">
+            <h1 className="text-4xl text-orange cursor-pointer">
+              Digital Garden
+            </h1>
+          </Link>
+          <P className="text-lg">
+            My raw ideas that I cultivate and cherish. All are welcome.
+          </P>
+        </div>
+      </div>
       <div className="flex flex-col md:flex-row mt-4 justify-evenly">
         <div className="w-full md:w-1/2 pr-4">
           <Link href="/now">
@@ -48,21 +64,11 @@ const Index = () => {
           </P>
         </div>
         <div className="w-full md:w-1/2">
-          <Link href="/digitalgarden">
-            <h1 className="text-4xl text-orange cursor-pointer">
-              Digital Garden
-            </h1>
+          <Link href="/about">
+            <h1 className="text-4xl text-orange cursor-pointer">About</h1>
           </Link>
-          <P className="text-lg">
-            My raw ideas that I cultivate and cherish. All are welcome.
-          </P>
+          <P className="text-lg">Some fun stuff about me 😄</P>
         </div>
-      </div>
-      <div>
-        <Link href="/blog">
-          <h1 className="text-4xl text-orange cursor-pointer">Blog</h1>
-        </Link>
-        <P className="text-lg">Posts that are more refined and structured.</P>
       </div>
       <ConvertKitScript />
     </main>
