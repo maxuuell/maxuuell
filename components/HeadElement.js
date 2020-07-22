@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { render } from "react-dom";
 
 const HeadElement = ({ children }) => {
   return (
@@ -15,6 +14,7 @@ const HeadElement = ({ children }) => {
       gtag('js', new Date()); gtag('config', 'UA-78687488-2');`,
         }}
       />
+      <script src="https://f.convertkit.com/ckjs/ck.5.js" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       {children}
     </Head>

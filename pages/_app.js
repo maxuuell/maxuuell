@@ -1,4 +1,5 @@
 import "../styles/index.css";
+import "../styles/ck.css";
 import { MDXProvider } from "@mdx-js/react";
 import { P, H1, H2, H3 } from "../components/common";
 import CodeBlock from "../components/CodeBlock";

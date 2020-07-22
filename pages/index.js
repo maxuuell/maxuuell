@@ -5,7 +5,7 @@ import HeadElement from "../components/HeadElement";
 
 import { Header } from "../components/Headers";
 import { P } from "../components/common";
-import ConvertKitScript from "../components/ConvertKitScript";
+import ConvertKitForm from "../components/ConvertKitForm";
 const Index = () => {
   return (
     <main className="w-full max-w-screen-md m-auto mb-32 pr-6 pl-6 lg:p-0">
@@ -70,7 +70,9 @@ const Index = () => {
           <P className="text-lg">Some fun stuff about me 😄</P>
         </div>
       </div>
-      <ConvertKitScript />
+      <br />
+      <br />
+      <ConvertKitForm />
     </main>
   );
 };
