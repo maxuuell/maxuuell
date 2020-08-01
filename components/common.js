@@ -6,6 +6,15 @@ export const P = ({ children, className = "", style = {} }) => (
   </p>
 );
 
+export const UL = ({ children, className = "", style = {} }) => (
+  <ul
+    style={style}
+    className={`leading-loose mb-6 list-disc list-inside ${className}`}
+  >
+    {children}
+  </ul>
+);
+
 export const H1 = ({ children, className = "", style = {} }) => (
   <h1 style={style} className={`text-3xl md:text-5xl ${className}`}>
     {children}

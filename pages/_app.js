@@ -1,7 +1,7 @@
 import "../styles/index.css";
 import "../styles/ck.css";
 import { MDXProvider } from "@mdx-js/react";
-import { P, H1, H2, H3 } from "../components/common";
+import { P, H1, H2, H3, UL } from "../components/common";
 import CodeBlock from "../components/CodeBlock";
 
 const components = {
@@ -11,6 +11,9 @@ const components = {
   h1: H1,
   h2: H2,
   h3: H3,
+  ul: (props) => {
+    return <UL {...props} className={"text-xl"}></UL>;
+  },
   code: CodeBlock,
 };
 

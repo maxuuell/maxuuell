@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { LayoutHeader } from "../../components/Headers";
-import { H2, H3 } from "../../components/common";
+import { H3 } from "../../components/common";
 import HeadElement from "../../components/HeadElement";
 import { frontMatter } from "./*.mdx";
 import formatPath from "../../utils/formatPath";
