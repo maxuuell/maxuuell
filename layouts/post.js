@@ -10,7 +10,7 @@ export default (frontMatter) => {
     title,
     subtitle = "",
     date,
-    imageUrl = "https://maxuuell.com/blog-header-image.jpeg",
+    imageUrl = "https://maxuuell.com/blog-header-image-2.jpeg",
     ck = true,
   } = frontMatter;
   return ({ children: content }) => {
@@ -18,11 +18,12 @@ export default (frontMatter) => {
       <main className="w-full max-w-screen-md m-auto mb-32 pr-6 pl-6 lg:p-0">
         <HeadElement>
           <title>{`${title} - maxuuell`}</title>
-          <meta name="twitter:card" content="summary" />
+          <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:site" content="@maxuuell" />
-          <meta name="twitter:title" content={title} />
-          <meta name="twitter:description" content={subtitle} />
-          <meta name="twitter:image" content={imageUrl} />
+          <meta name="og:title" content={title} />
+          <meta name="og:description" content={subtitle} />
+          <meta name="og:image" content={imageUrl} />
+          <meta name="twitter:image:alt" content="A blog post from maxuuell" />
         </HeadElement>
         <LayoutHeader />
         <H1 className="font-bold">{title}</H1>
