@@ -6,7 +6,13 @@ import ConvertKitForm from "../components/ConvertKitForm";
 // import Share from "../components/Share";
 
 export default (frontMatter) => {
-  const { title, subtitle = "", date, imageUrl, ck = true } = frontMatter;
+  const {
+    title,
+    subtitle = "",
+    date,
+    imageUrl = "https://maxuuell.com/blog-header-image.jpeg",
+    ck = true,
+  } = frontMatter;
   return ({ children: content }) => {
     return (
       <main className="w-full max-w-screen-md m-auto mb-32 pr-6 pl-6 lg:p-0">
