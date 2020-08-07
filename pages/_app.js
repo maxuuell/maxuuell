@@ -8,7 +8,9 @@ const components = {
   p: (props) => {
     return <P {...props} className={"text-xl"}></P>;
   },
-  h1: H1,
+  h1: (props) => {
+    return <H1 {...props} className={"md:text-5xl"}></H1>;
+  },
   h2: H2,
   h3: H3,
   ul: (props) => {

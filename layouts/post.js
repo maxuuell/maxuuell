@@ -1,7 +1,7 @@
 import React from "react";
 import { LayoutHeader } from "../components/Headers";
-import { P, H1, H3 } from "../components/common";
 import HeadElement from "../components/HeadElement";
+import { P, H1, H3 } from "../components/common";
 import ConvertKitForm from "../components/ConvertKitForm";
 // import Share from "../components/Share";
 
@@ -10,7 +10,7 @@ export default (frontMatter) => {
     title,
     subtitle = "",
     date,
-    imageUrl = "https://maxuuell.com/blog-header-image-2.jpeg",
+    imageUrl = "https://maxuuell.com/blog-header-image.jpeg",
     ck = true,
   } = frontMatter;
   return ({ children: content }) => {
@@ -21,12 +21,13 @@ export default (frontMatter) => {
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:site" content="@maxuuell" />
           <meta name="og:title" content={title} />
-          <meta name="og:description" content={subtitle} />
+          {subtitle ? <meta name="og:description" content={subtitle} /> : null}
           <meta name="og:image" content={imageUrl} />
           <meta name="twitter:image:alt" content="A blog post from maxuuell" />
         </HeadElement>
         <LayoutHeader />
-        <H1 className="font-bold">{title}</H1>
+        <br />
+        <H1 className="font-bold text-center mb-8 md:text-5xl">{title}</H1>
         {subtitle ? <H3>{subtitle}</H3> : null}
         {date ? <P className="text-grey text-sm">{date}</P> : <br />}
         {content}
