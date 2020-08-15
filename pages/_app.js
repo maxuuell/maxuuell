@@ -1,7 +1,8 @@
 import "../styles/index.css";
 import "../styles/ck.css";
+import "prismjs/themes/prism-tomorrow.css";
 import { MDXProvider } from "@mdx-js/react";
-import { P, H1, H2, H3, UL } from "../components/common";
+import { P, H1, H2, H3, UL, BlockQuote } from "../components/common";
 import CodeBlock from "../components/CodeBlock";
 
 const components = {
@@ -17,6 +18,7 @@ const components = {
     return <UL {...props} className={"text-xl"}></UL>;
   },
   code: CodeBlock,
+  blockquote: BlockQuote,
 };
 
 export default function App({ Component, pageProps }) {

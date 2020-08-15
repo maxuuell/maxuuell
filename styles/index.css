@@ -22,6 +22,18 @@ form {
   border: none !important;
 }
 
-p code {
-  background-color: rgba(255, 140, 0, 0.3);
+code:not(.prism-code) {
+  background-color: rgba(255, 140, 0, 0.5);
+  padding: 0px 4px;
+  border-radius: 5px;
+}
+
+pre[class*="language-"] {
+  margin: 2rem 0 !important;
+}
+
+/* paragraph inside blockquote is the same paragraph
+used in the MDX provider */
+blockquote > p {
+  margin: 0 !important;
 }

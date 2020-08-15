@@ -1,0 +1,61 @@
+---
+layout: post
+title: How to Concatenate Strings in Rust
+imageUrl: https://maxuuell.com/concatenate-strings.jpeg
+---
+
+If you are new to Rust, you many have to re-learn how to do certain tasks that you almost did automatically in other languages.
+
+When I was working on [swcli](), I needed to create a URL dynamically, based on user input. I ended up finding 5 approaches to create the URL. Now, I am going to share those 5 approaches, and share which ones may be the best, going forward.
+
+## Good ol' + Operator
+
+```
+let url = String::from("http://swapi.dev/api/") + &args.attributes + "/" + &args.id;
+```
+
+I just tried this as a carry over from the pre-[template literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) days. This is one of the ways you could concatenate strings in Javascript.
+
+## Format Macro
+
+```
+let url = format!("http://swapi.dev/api/{}/{}", args.attributes, args.id);
+```
+
+Straight from the [rust docs](https://doc.rust-lang.org/std/macro.format.html):
+
+> A common use for format! is concatenation and interpolation of strings.
+
+## Use `push_str` on a `String` struct
+
+```
+let mut url = String::from("http://swapi.dev/api/");
+url.push_str(&args.attributes);
+url.push_str("/");
+url.push_str(&args.id);
+```
+
+This pattern is great, but does require a mutable reference. Everything in Rust is immutable by default. If you don't want a mutable reference to your string, consider one of the other options.
+
+## Array.concat()
+
+```
+let url = ["http://swapi.dev/api/", &args.attributes, "/", &args.id].concat();
+```
+    
+This pattern leverages an array to concatenate the items together. This was recommended by [scottmcm](https://users.rust-lang.org/t/any-difference-between-these-concatenation-strategies/47094/5?u=maxuuell) as the cleanest and fully efficient way of concatenating strings.
+
+## The Actual `url` Crate
+```
+let paths = [&args.attributes, "/", &args.id].concat();
+let url = Url::parse("http://swapi.dev/api/")?;
+let url = url.join(&paths)?;
+```
+
+If you recall, I needed to create a URL dynamically. What I should have started with, and what you should too if you need to create a URL, is just use the [url crate](https://docs.rs/url/2.1.1/url/). 
+
+The `.join()` method only allows you to append one string to the end of the url and path. In this case, I had to use the `.concat()` approach mentioned above to concatenate my cli arguments to then join them to the base url.
+
+If you need to concatenate strings for a more general purpose, follow the `.concat()` recommendations above. 
+
+Happy coding! 🤓

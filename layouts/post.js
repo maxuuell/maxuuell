@@ -1,9 +1,14 @@
 import React from "react";
+import Prism from "prism-react-renderer/prism";
 import { LayoutHeader } from "../components/Headers";
 import HeadElement from "../components/HeadElement";
 import { P, H1, H3 } from "../components/common";
 import ConvertKitForm from "../components/ConvertKitForm";
 // import Share from "../components/Share";
+
+(typeof global !== "undefined" ? global : window).Prism = Prism;
+
+require("prismjs/components/prism-rust");
 
 export default (frontMatter) => {
   const {

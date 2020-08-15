@@ -4,12 +4,12 @@
   "description": "my blog",
   "main": "index.js",
   "dependencies": {
-    "@mdx-js/loader": "^1.6.1",
-    "@mdx-js/react": "^1.6.1",
-    "@next/mdx": "^9.3.6",
+    "@mdx-js/loader": "^1.6.16",
+    "@mdx-js/react": "^1.6.16",
+    "@next/mdx": "^9.5.2",
     "@statickit/react": "^2.1.1",
     "babel-plugin-import-glob-array": "^0.2.0",
-    "next": "^9.3.6",
+    "next": "9.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
@@ -17,10 +17,10 @@
     "next-mdx-enhanced": "^2.5.0",
     "postcss-preset-env": "^6.7.0",
     "prism-react-renderer": "^1.1.1",
-    "prismjs": "^1.20.0",
+    "prismjs": "^1.21.0",
     "remark-emoji": "^2.1.0",
     "remark-images": "^2.0.0",
-    "tailwindcss": "^1.4.5"
+    "tailwindcss": "^1.6.2"
   },
   "scripts": {
     "dev": "next",

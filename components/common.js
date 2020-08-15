@@ -33,4 +33,13 @@ export const H3 = ({ children, className = "", style = {} }) => (
   </h3>
 );
 
-export const CODE = (props) => <pre {...props} />;
+// export const CODE = (props) => <pre {...props} />;
+
+export const BlockQuote = ({ children, className = "", style }) => (
+  <blockquote
+    style={style}
+    className={`${className} border-l-4 border-orange pl-8 pt-4 pb-4 italic bg-text-background-black`}
+  >
+    {children}
+  </blockquote>
+);

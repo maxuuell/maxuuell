@@ -2,10 +2,10 @@ import React from "react";
 import Link from "next/link";
 // https://stackoverflow.com/questions/60411351/how-to-use-google-analytics-with-next-js-app/62552263#62552263
 import HeadElement from "../components/HeadElement";
-
 import { Header } from "../components/Headers";
 import { P } from "../components/common";
 import ConvertKitForm from "../components/ConvertKitForm";
+
 const Index = () => {
   return (
     <main className="w-full max-w-screen-md m-auto mb-32 pr-6 pl-6 lg:p-0">

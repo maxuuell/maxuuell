@@ -1,18 +1,18 @@
 import React from "react";
+import Highlight from "prism-react-renderer";
 import Prism from "prism-react-renderer/prism";
-import Highlight, { defaultProps } from "prism-react-renderer";
 
 const CodeBlock = ({ children }) => {
   return (
     <Highlight
       Prism={Prism}
-      {...defaultProps}
       code={children}
-      language={"react"}
+      language={"rust"}
+      theme={undefined}
     >
-      {({ className, style, tokens, getLineProps, getTokenProps }) => {
+      {({ className, styles, tokens, getLineProps, getTokenProps }) => {
         return (
-          <pre className={className}>
+          <pre className={`${className}`} styles={styles}>
             <code className={className}>
               {tokens.map((line, i) => (
                 <div key={i} {...getLineProps({ line, key: i })}>
