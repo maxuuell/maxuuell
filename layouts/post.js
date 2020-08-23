@@ -17,6 +17,7 @@ export default (frontMatter) => {
     date,
     imageUrl = "https://maxuuell.com/blog-header-image.jpeg",
     ck = true,
+    imageAltText = "",
   } = frontMatter;
   return ({ children: content }) => {
     return (
@@ -28,7 +29,7 @@ export default (frontMatter) => {
           <meta name="og:title" content={title} />
           {subtitle ? <meta name="og:description" content={subtitle} /> : null}
           <meta name="og:image" content={imageUrl} />
-          <meta name="twitter:image:alt" content="A blog post from maxuuell" />
+          <meta name="twitter:image:alt" content={imageAltText} />
         </HeadElement>
         <LayoutHeader />
         <br />

@@ -1,0 +1,94 @@
+---
+layout: post
+title: How NOT to Shadow Variables in Rust
+imageAltText: how not to shadow variables
+imageUrl: https://maxuuell.com/variable-shadowing.jpeg
+---
+
+If you're a JavaScript developer, you may have used this pattern before.
+
+```
+let a;
+
+if (something) {
+    a = "bananas"
+} else {
+    a = "apples"
+}
+
+console.log(a) // logs at least "apples"
+```
+
+You would expect `a` to equal `bananas`, or `apples`.
+
+## Variable Shadowing
+
+In Rust, you can leverage [variable shadowing](https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html#shadowing) to assign a new value to a same named variable, like so:
+
+```
+let a = ""
+let a = "banana"
+
+println!("{}", a); // ---> "banana"
+
+```
+
+New variables are created each time you shadow a variable. In the case above, the first `a` is shadowed by the second, and the second `a` is a new variable, with the name `a`, initialized with the value `bananas`. 
+
+The first `a` is "shadowed" by the second.
+
+## Variable Shadowing Across Scopes
+
+You can shadow a variable across nested scopes.
+
+```
+let a = "";
+
+if condition1 {
+    let a = "bananas";
+} else if condition2 {
+    let a = "avacados";
+} else {
+    let a = "apples";
+}
+
+println!("{}", a); // --> prints ""
+```
+
+This is perfectly valid Rust, but the compiler will yell at you with warnings of unnused variables. 🤔
+
+You see, that `let` under `condition1` is shadowing the first `a` as we would expect. But, that second variable `a` is now declared inside a new block scope, the if conditional. That variable declaration of `a` is not in the outter scope, and therefore, not accessible to the print macro. So, you will always end up printing and empty string.
+
+In short, *variables are only valid in the scope they are declared.*
+
+You can shadow variables across scopes, and if you printed the `a` under `condition1`, it would print `bananas`. *But the shadow does not extend beyond the scope it was declared in.*
+
+## The Fix
+
+To fix this, and emulate the JavaScript pattern above, you would make the first `let` mutable, and assign the new values to `a`, like below.
+
+```
+let mut a = "";
+
+if condition1 {
+    a = "bananas";
+} else if condition2 {
+    a = "avacados";
+} else {
+    a = "apples";
+}
+
+println!("{}", a); // --> prints at least "apples"
+```
+
+No more unused variables, with code that behaves as you'd expect.
+
+Happy coding 👻
+
+## References
+
+[Variable Shadowing Wikipedia](https://en.wikipedia.org/wiki/Variable_shadowing)
+
+[Scope and Shadowing](https://doc.rust-lang.org/stable/rust-by-example/variable_bindings/scope.html)
+
+[Rust Lang Forum - Variable Shadowing](https://users.rust-lang.org/t/variable-shadowing/30763)
