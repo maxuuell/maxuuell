@@ -83,7 +83,29 @@ println!("{}", a); // --> prints at least "apples"
 
 No more unused variables, with code that behaves as you'd expect.
 
-Happy coding 👻
+## Edit - More Rusty Fixes
+
+[@kpozin](https://twitter.com/kpozin/status/1297587623574138880) pointed out a more Rusty approach to the above fix.
+
+```
+let a = if condition1 {
+    a = "bananas";
+} else if condition2 {
+    a = "avacados";
+} else {
+    a = "apples";
+}
+
+println!("{}", a); // --> prints at least "apples"
+```
+
+This approach leverages how [Rust is an expression language](https://doc.rust-lang.org/reference/statements-and-expressions.html). Each of those if blocks is an expression, and will evaluate to something. By returning the value in the block, you are assigning that value to the `let` declaration. This approach removes the need for a mutable variable.
+
+[@SimonSapin](https://twitter.com/SimonSapin/status/1297587917980864519) also pointed out in the same thread that the compiler will allow you to use an uninitialized variable, if flow control analysis proves it is assigned eventually. In this case, if you have an if, and an else that assigns a value eventually, then you can leave the first `let` uninitialized. 
+
+This approach makes me appreciate the Rust compiler so much more. 😍
+
+Happy coding. 👻
 
 ## References
 
