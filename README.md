@@ -2,7 +2,9 @@
 
 This is my blog's repo. Built with Next.js, MDX, and hosted on Vercel.
 
-Come checkout the website at [maxuuell.com](https://maxuuell.com/).
+Come checkout my posts at [maxuuell.com](https://maxuuell.com/), and don't forget to sign up for my email list.
+
+Also, follow me on [twitter](https://twitter.com/maxuuell). I am always open to talk.
 
 ## My Github Stats
 
