@@ -17,6 +17,8 @@ let url = String::from("http://swapi.dev/api/") + &args.attributes + "/" + &args
 
 I just tried this as a carry over from the pre-[template literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) days. This is one of the ways you could concatenate strings in Javascript.
 
+I should point out a limitation to using the `+` operator that Chris Biscardi called out in [his post](https://www.christopherbiscardi.com/concatenating-two-string-slices-and-str-in-rust). You can only use the `+` operator on _owned_ values which means you can't use `+` with string slices.
+
 ## Format Macro
 
 ```
@@ -43,20 +45,25 @@ This pattern is great, but does require a mutable reference. Everything in Rust 
 ```
 let url = ["http://swapi.dev/api/", &args.attributes, "/", &args.id].concat();
 ```
-    
+
 This pattern leverages an array to concatenate the items together. This was recommended by [scottmcm](https://users.rust-lang.org/t/any-difference-between-these-concatenation-strategies/47094/5?u=maxuuell) as the cleanest and fully efficient way of concatenating strings.
 
 ## The Actual `url` Crate
+
 ```
 let paths = [&args.attributes, "/", &args.id].concat();
 let url = Url::parse("http://swapi.dev/api/")?;
 let url = url.join(&paths)?;
 ```
 
-If you recall, I needed to create a URL dynamically. What I should have started with, and what you should too if you need to create a URL, is just use the [url crate](https://docs.rs/url/2.1.1/url/). 
+If you recall, I needed to create a URL dynamically. What I should have started with, and what you should too if you need to create a URL, is just use the [url crate](https://docs.rs/url/2.1.1/url/).
 
 The `.join()` method only allows you to append one string to the end of the url and path. In this case, I had to use the `.concat()` approach mentioned above to concatenate my cli arguments to then join them to the base url.
 
-If you need to concatenate strings for a more general purpose, follow the `.concat()` recommendations above. 
+If you need to concatenate strings for a more general purpose, follow the `.concat()` recommendations above.
+
+## Edit Stackoverflow Response
+
+There is a [stackoverflow question](https://stackoverflow.com/questions/30154541/how-do-i-concatenate-strings) that has a lot of great responses as well. Give it a look for some additional details.
 
 Happy coding! 🤓
