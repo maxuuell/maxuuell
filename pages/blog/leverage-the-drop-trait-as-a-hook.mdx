@@ -1,0 +1,73 @@
+---
+layout: post
+title: Leverage the Drop Trait as a Hook in Rust
+imageUrl: https://maxuuell.com/drop-trait.jpeg
+imageAltText: drop trait as a hook
+---
+
+[Chapter 4 of the Rust Book](https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html) outlines the three rules of ownership:
+
+- Each value in Rust has a variable that’s called its **owner**.
+- There can only be one owner at a time.
+- When the owner goes out of scope, the value will be dropped.
+
+What struck me while working on the [Rust WASM Intro](https://rustwasm.github.io/docs/book/) was the profound impact the last rule has.
+
+At the end of a resource's lifetime, which typically aligns with the scope the resource is valid in, the resource will be freed.
+
+That behavior is driven by the Drop trait, which has only one method, `drop`.
+
+The Drop trait is implemented by default on many types, but can be implemented on any custom type as well.
+
+That Drop trait allows us to hook into the final milliseconds of the type's lifetime, and **add custom logic**.
+
+We can essentially hook into the deallocation phase of the type, and do any last task, like logging to capture state, or IO operations.
+
+Let's see a trivial example:
+
+```
+struct WickedWitch {
+    origin : &'static str
+}
+
+fn main() {
+	let witch = WickedWitch { origin : "west" };
+}
+
+impl Drop for WickedWitch {
+    fn drop(&mut self) {
+        println!("{}", "What a world!!")
+    }
+}
+```
+
+When our program ends, when main finishes, you will see a print of `"What a world!!"`
+
+You can check out the playground [here](https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=6cbb72f027f5e0b944bfab680d69a48f).
+
+Something more useful might be to capture the state of you struct:
+
+```
+use std::fs::File;
+use std::io::prelude::*;
+
+struct WickedWitch {
+    origin: &'static str,
+}
+
+fn main() {
+    let witch = WickedWitch { origin: "west" };
+}
+
+impl Drop for WickedWitch {
+    fn drop(&mut self) {
+        let mut file = File::create("origins.txt").unwrap();
+        let string_to_write = format!("WickedWitch origin: {}", &self.origin);
+        file.write(string_to_write.as_bytes());
+    }
+}
+```
+
+This will create a file called `origins.txt`, and write the origin of the `WickedWitch` for later consumption.
+
+Happy coding 🆓
