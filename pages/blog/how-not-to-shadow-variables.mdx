@@ -30,10 +30,9 @@ let a = ""
 let a = "banana"
 
 println!("{}", a); // ---> "banana"
-
 ```
 
-New variables are created each time you shadow a variable. In the case above, the first `a` is shadowed by the second, and the second `a` is a new variable, with the name `a`, initialized with the value `bananas`. 
+New variables are created each time you shadow a variable. In the case above, the first `a` is shadowed by the second, and the second `a` is a new variable, with the name `a`, initialized with the value `bananas`.
 
 The first `a` is "shadowed" by the second.
 
@@ -59,9 +58,9 @@ This is perfectly valid Rust, but the compiler will yell at you with warnings of
 
 You see, that `let` under `condition1` is shadowing the first `a` as we would expect. But, that second variable `a` is now declared inside a new block scope, the if conditional. That variable declaration of `a` is not in the outter scope, and therefore, not accessible to the print macro. So, you will always end up printing and empty string.
 
-In short, *variables are only valid in the scope they are declared.*
+In short, _variables are only valid in the scope they are declared._
 
-You can shadow variables across scopes, and if you printed the `a` under `condition1`, it would print `bananas`. *But the shadow does not extend beyond the scope it was declared in.*
+You can shadow variables across scopes, and if you printed the `a` under `condition1`, it would print `bananas`. _But the shadow does not extend beyond the scope it was declared in._
 
 ## The Fix
 
@@ -101,7 +100,7 @@ println!("{}", a); // --> prints at least "apples"
 
 This approach leverages how [Rust is an expression language](https://doc.rust-lang.org/reference/statements-and-expressions.html). Each of those if blocks is an expression, and will evaluate to something. By returning the value in the block, you are assigning that value to the `let` declaration. This approach removes the need for a mutable variable.
 
-[@SimonSapin](https://twitter.com/SimonSapin/status/1297587917980864519) also pointed out in the same thread that the compiler will allow you to use an uninitialized variable, if flow control analysis proves it is assigned eventually. In this case, if you have an if, and an else that assigns a value eventually, then you can leave the first `let` uninitialized. 
+[@SimonSapin](https://twitter.com/SimonSapin/status/1297587917980864519) also pointed out in the same thread that the compiler will allow you to use an uninitialized variable, if flow control analysis proves it is assigned eventually. In this case, if you have an if, and an else that assigns a value eventually, then you can leave the first `let` uninitialized.
 
 This approach makes me appreciate the Rust compiler so much more. 😍
 

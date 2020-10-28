@@ -14,13 +14,18 @@ const CodeBlock = ({ children }) => {
         return (
           <pre className={`${className}`} styles={styles}>
             <code className={className}>
-              {tokens.map((line, i) => (
+              {tokens.map((line, i) => {
+                if (line.length === 1 && line[0].content === '' && i < tokens.length -1) {
+                  line[0].content = ' ';
+                }
+                return ( 
                 <div key={i} {...getLineProps({ line, key: i })}>
                   {line.map((token, key) => (
                     <span key={key} {...getTokenProps({ token, key })} />
                   ))}
                 </div>
-              ))}
+                )
+              })}
             </code>
           </pre>
         );

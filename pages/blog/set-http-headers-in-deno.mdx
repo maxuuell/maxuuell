@@ -1,0 +1,45 @@
+---
+layout: post
+title: Set HTTP Headers in Deno
+imageAltText: set headers in deno
+imageUrl: https://maxuuell.com/deno-headers.jpeg
+---
+
+Deno's runtime provides a host of functionality. If you haven't looked, check out the docs [here](https://doc.deno.land/builtin/stable).
+
+One of the classes that is exposed in the runtime is `Headers`.
+
+To start, first create a new Headers instance.
+
+```
+const headers = new Headers();
+```
+
+The `Headers` class can be instantiated without any arguments, or can be passed an object, or an array of tuples.
+
+```
+const headers = new Headers([ ["Cache-Control", "max-age=3600"] ]);
+const headers = new Headers({ "Cache-Control": "max-age=3600" });
+```
+
+Once instantiated, you can manipulate or traverse the headers with `delete`, `entries`, `has`, etc. See the list of methods [here](https://doc.deno.land/builtin/stable#Headers).
+
+You can see a working example of a server setting custom headers with the `append` method, below.
+
+```
+import { serve } from "https://deno.land/std@0.74.0/http/server.ts";
+
+const server = serve({ hostname: "0.0.0.0", port: 8080 });
+
+for await (const request of server) {
+    const body = new TextEncoder().encode('<h1>Hello World</h1>\n <a href="http://localhost:8080/">Click me for a cached response</a>');
+
+    const headers = new Headers({"Cache-Control": "max-age=3600"});
+
+    headers.append("custom-header", "some value");
+
+    request.respond({ status: 200, body, headers  });
+}
+```
+
+Happy coding 😎
