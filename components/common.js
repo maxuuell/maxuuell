@@ -36,7 +36,7 @@ export const H3 = ({ children, className = "", style = {} }) => (
 export const BlockQuote = ({ children, className = "", style }) => (
   <blockquote
     style={style}
-    className={`${className} border-l-4 border-orange pl-8 pt-4 pb-4 italic bg-text-background-black`}
+    className={`${className} border-l-4 border-orange mb-8 pl-8 pr-8 pt-4 pb-4 italic bg-text-background-black`}
   >
     {children}
   </blockquote>
