@@ -35,7 +35,7 @@ export default (frontMatter) => {
         <br />
         <H1 className="font-bold text-center mb-8 md:text-5xl">{title}</H1>
         {subtitle ? <H3>{subtitle}</H3> : null}
-        {date ? <P className="text-grey text-sm">{date}</P> : <br />}
+        {/* {date ? <P className="text-grey text-sm">{date}</P> : <br />} */}
         {content}
         <br />
         <br />

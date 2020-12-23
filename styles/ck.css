@@ -124,19 +124,19 @@
   transition: border-color ease 300ms;
 }
 .formkit-form[data-uid="ed942d9ce9"] .formkit-input::-webkit-input-placeholder {
-  color: inherit;
+  color: black;
   opacity: 0.8;
 }
 .formkit-form[data-uid="ed942d9ce9"] .formkit-input::-moz-placeholder {
-  color: inherit;
+  color: black;
   opacity: 0.8;
 }
 .formkit-form[data-uid="ed942d9ce9"] .formkit-input:-ms-input-placeholder {
-  color: inherit;
+  color: black;
   opacity: 0.8;
 }
 .formkit-form[data-uid="ed942d9ce9"] .formkit-input::placeholder {
-  color: inherit;
+  color: black;
   opacity: 0.8;
 }
 .formkit-form[data-uid="ed942d9ce9"] [data-group="dropdown"] {

@@ -5,7 +5,9 @@ import { H1 } from "./common";
 export const Header = () => {
   return (
     <header className="mt-8 mb-8">
-      <H1 className="md:text-5xl">Maxwell DeMers</H1>
+      <a className="text-white">
+        <H1 className="md:text-5xl">Maxwell DeMers</H1>
+      </a>
       <a href="https://twitter.com/maxuuell" target="__blank">
         @maxuuell
       </a>
@@ -19,11 +21,11 @@ export const LayoutHeader = () => {
   return (
     <header className="mt-8 mb-8">
       <Link href="/">
-        <div>
+        <a className="text-white">
           <H1 className="hover:text-orange cursor-pointer md:text-5xl">
             Maxwell DeMers
           </H1>
-        </div>
+        </a>
       </Link>
       <a href="https://twitter.com/maxuuell" target="__blank">
         @maxuuell

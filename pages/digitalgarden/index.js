@@ -15,27 +15,27 @@ const DigitalGarden = () => {
       <LayoutHeader />
       <H1 className="font-bold">Digital Garden</H1>
       <Link href="../blog/what-is-a-digital-garden">
-        <div>
-          <P className="text-sm text-orange cursor-pointer">
-            What is a Digital Garden?
-          </P>
-        </div>
+        <a className="text-sm leading-normal mb-8 inline-block">
+          What is a Digital Garden?
+        </a>
       </Link>
-      {frontMatter.map((page, key) => {
-        const { title, subtitle, date, __resourcePath } = page;
-        return (
-          <div key={key}>
-            <Link href={`${formatPath(__resourcePath)}`}>
-              <div>
-                <H3 className="font-bold hover:text-orange cursor-pointer">
+      {frontMatter
+        .sort((a, b) => {
+          return new Date(b.date) - new Date(a.date);
+        })
+        .map((page, key) => {
+          const { title, subtitle, date, __resourcePath } = page;
+          return (
+            <div key={key}>
+              <Link href={`${formatPath(__resourcePath)}`}>
+                <a className="font-bold text-white hover:text-orange text-2xl mb-6 inline-block">
                   {title}
-                </H3>
-              </div>
-            </Link>
-            <p>{subtitle}</p>
-          </div>
-        );
-      })}
+                </a>
+              </Link>
+              <p>{subtitle}</p>
+            </div>
+          );
+        })}
     </main>
   );
 };

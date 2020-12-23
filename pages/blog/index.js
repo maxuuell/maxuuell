@@ -13,21 +13,23 @@ const Blog = () => {
         <title>Blog - maxuuell</title>
       </HeadElement>
       <LayoutHeader />
-      {frontMatter.map((page, key) => {
-        const { title, subtitle, date, __resourcePath } = page;
-        return (
-          <div key={key}>
-            <Link href={`${formatPath(__resourcePath)}`}>
-              <div>
-                <H3 className="font-bold hover:text-orange cursor-pointer">
+      {frontMatter
+        .sort((a, b) => {
+          return new Date(b.date) - new Date(a.date);
+        })
+        .map((page, key) => {
+          const { title, subtitle, date, __resourcePath } = page;
+          return (
+            <div key={key}>
+              <Link href={`${formatPath(__resourcePath)}`}>
+                <a className="font-bold text-white hover:text-orange text-2xl mb-6 inline-block">
                   {title}
-                </H3>
-              </div>
-            </Link>
-            <p>{subtitle}</p>
-          </div>
-        );
-      })}
+                </a>
+              </Link>
+              <p>{subtitle}</p>
+            </div>
+          );
+        })}
     </main>
   );
 };

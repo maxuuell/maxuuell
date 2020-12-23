@@ -36,15 +36,19 @@ const Index = () => {
       <div className="flex flex-col md:flex-row mt-4 justify-evenly">
         <div className="w-full md:w-1/2 pr-4">
           <Link href="/blog">
-            <h1 className="text-4xl text-orange cursor-pointer">Blog</h1>
+            <a>
+              <h1 className="text-4xl text-orange cursor-pointer">Blog</h1>
+            </a>
           </Link>
           <P className="text-lg">Posts that are more refined and structured.</P>
         </div>
         <div className="w-full md:w-1/2">
           <Link href="/digitalgarden">
-            <h1 className="text-4xl text-orange cursor-pointer">
-              Digital Garden
-            </h1>
+            <a>
+              <h1 className="text-4xl text-orange cursor-pointer">
+                Digital Garden
+              </h1>
+            </a>
           </Link>
           <P className="text-lg">
             My raw ideas that I cultivate and cherish. All are welcome.
@@ -54,7 +58,9 @@ const Index = () => {
       <div className="flex flex-col md:flex-row mt-4 justify-evenly">
         <div className="w-full md:w-1/2 pr-4">
           <Link href="/now">
-            <h1 className="text-4xl text-orange cursor-pointer">Now</h1>
+            <a>
+              <h1 className="text-4xl text-orange cursor-pointer">Now</h1>
+            </a>
           </Link>
           <P className="text-lg">
             My "now" page, inspired by{" "}
@@ -65,7 +71,9 @@ const Index = () => {
         </div>
         <div className="w-full md:w-1/2">
           <Link href="/about">
-            <h1 className="text-4xl text-orange cursor-pointer">About</h1>
+            <a>
+              <h1 className="text-4xl text-orange cursor-pointer">About</h1>
+            </a>
           </Link>
           <P className="text-lg">Some fun stuff about me 😄</P>
         </div>

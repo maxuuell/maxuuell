@@ -25,7 +25,7 @@ const ConvertKitForm = () => {
             fontWeight: "700",
           }}
         >
-          <h1>Join My Newsletter</h1>
+          <h1>Join My Mailing List</h1>
         </div>
         <div
           className="formkit-subheader"
